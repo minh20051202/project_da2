@@ -1,0 +1,32 @@
+{
+  "schema_version": "demo-formalization-manifest/1",
+  "manifest_id": "MANIFEST_VAT_ART14_C2_EXPORT_DOCS_0_1_0_DEMO",
+  "parent_manifest_id": null,
+  "rule_id": "VAT_ART14_C2_EXPORT_DOCS",
+  "rule_version": "0.1.0-demo",
+  "namespace": "VAT.Article14Clause2",
+  "case_type": "ExportGoodsEvidence",
+  "predicate_symbol": "VAT.Article14Clause2.SatisfiesDocumentConditions",
+  "required_imports": [],
+  "implicit_core_import": "Init (Lean default)",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axiom_allowlist": ["propext"],
+  "axiom_policy_note": "The demo permits Lean propositional extensionality; it does not permit sorryAx or legal/domain axioms.",
+  "artifacts": {
+    "legal_source": {"path": "resources/references/01-vbhn-vpqh-114.pdf", "sha256": "3ae9204946aa77c62877c3e5fcbf0186ac226d7e518b649c84c1c983bd08494d"},
+    "source_reference": {"path": "formalization/packets/VAT_ART14_C2_EXPORT_DOCS/v0.1.0/source.json", "sha256": "218af4919f551c7b802183e55a991b18ab0b0a8903b57f89b7b8b72ad2b7d101"},
+    "legal_ir": {"path": "formalization/packets/VAT_ART14_C2_EXPORT_DOCS/v0.1.0/legal_ir.json", "sha256": "ea957be9ef19415d3b5532f297ba985ce7c3af938034240b406f11554d0fb944"},
+    "mapping_and_tests": {"path": "formalization/packets/VAT_ART14_C2_EXPORT_DOCS/v0.1.0/mapping.json", "sha256": "160252915e45a494fae03d6ac04a200d92e4ede89c4c4880fc9bb507546625bd"},
+    "lean_source": {"path": "formalization/Article14Clause2.lean", "sha256": "42c76730ae8c8fe4c919f609390626806c765795adbb8b2c0fd731f138c0ab08"}
+  },
+  "supporting_symbols": ["EvidenceStatus", "ExportGoodsEvidence", "isPresent", "insuranceCondition"],
+  "test_theorems": ["completeCase_is_verified", "unknown_customs_is_not_verified", "absent_customs_is_not_verified", "unknown_insurance_is_not_verified", "not_applicable_customs_is_not_verified", "present_insurance_is_verified"],
+  "test_case_kind": "synthetic_normalized_status_cases",
+  "verification_command": ["python3", "scripts/verify_article14_packet.py"],
+  "lifecycle_status": "candidate",
+  "semantic_review": "pending",
+  "temporal_review": "pending",
+  "approval": "not_approved",
+  "online_eligible": false,
+  "immutability_note": "Hashes pin the demo contents. Changes require a new packet version/manifest; this is not an active approved registry entry."
+}

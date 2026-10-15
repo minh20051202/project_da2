@@ -1,0 +1,33 @@
+# Local caches, backups, and Python environments
+.firecrawl/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Local academic reports, submissions, and progress workbooks
+/Nop_Bao_Cao_Tung_Tuan/
+/resources/docs/Quan_Ly_Do_An/
+
+# Downloadable model assets; restore with download_embedding_model.py
+*.onnx
+**/models/**/tokenizer.json
+*.download
+
+# Editor, operating-system, and Office temporary files
+.DS_Store
+Thumbs.db
+~$*
+*.swp
+*.tmp

@@ -1,0 +1,49 @@
+{
+  "schema_version": "demo-rule-legal-ir/1",
+  "rule_id": "VAT_ART14_C2_EXPORT_DOCS",
+  "rule_version": "0.1.0-demo",
+  "source_ref": "source.json",
+  "subject": "exported_goods_transaction",
+  "modality": "document_condition_check",
+  "scope": {
+    "included": "Normalized document-status check for the ordinary exported-goods branch modeled by this seed.",
+    "excluded": ["export_services", "government_defined_purchase_payment_exceptions", "special_export_cases", "full_input_vat_deduction_eligibility"]
+  },
+  "conclusion": "document_conditions_satisfied_in_demo_scope",
+  "condition_operator": "all_of",
+  "conditions": [
+    {"id": "C01", "evidence_key": "inputVatInvoiceOrTaxReceipt", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_A"},
+    {"id": "C02", "evidence_key": "nonCashPaymentForPurchase", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_B"},
+    {"id": "C03", "evidence_key": "foreignPartyContract", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C04", "evidence_key": "salesInvoice", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C05", "evidence_key": "nonCashPaymentForExport", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C06", "evidence_key": "customsDeclaration", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C07", "evidence_key": "packingList", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C08", "evidence_key": "billOfLading", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C"},
+    {"id": "C09", "evidence_key": "insuranceCertificate", "accepted_statuses": ["present", "notApplicable"], "source_excerpt_id": "A14_C2_C"}
+  ],
+  "exceptions": [
+    {"source_excerpt_id": "A14_C2_B", "description": "Government-defined special purchase-payment cases", "handling": "outside_demo_scope_requires_review"},
+    {"source_excerpt_id": "A14_C2_C", "description": "Exports through foreign e-commerce platforms and other special cases", "handling": "outside_demo_scope_requires_review"}
+  ],
+  "formalisation_boundary": [
+    {"id": "B01", "reason": "Point a alternatives are collapsed into one status slot; document kind and Article 4 details need external validation."},
+    {"id": "B02", "reason": "Scope and delegated exceptions must be checked before applying this demo; the Lean predicate does not decide them."},
+    {"id": "B03", "reason": "Mapping 'nếu có' to insurance present OR justified notApplicable needs semantic review; justification is not encoded in the current Lean structure."},
+    {"id": "B04", "reason": "Document authenticity, cross-document consistency, and substantive eligibility are not proven by evidence-status equality."},
+    {"id": "B05", "reason": "Rule effectivity and detailed implementing provisions have not been resolved."}
+  ],
+  "evidence_status_policy": {
+    "default": "unknown",
+    "absent_requires": "A grounded reason or suitable review; a retrieval miss is insufficient.",
+    "notApplicable_requires": "Grounded reason and review, only where the condition permits it.",
+    "unknown_interpretation": "Not verified under this model; not a proof of real-world legal ineligibility."
+  },
+  "effective_from": null,
+  "effective_to": null,
+  "status": "candidate",
+  "semantic_review": "pending",
+  "approval": "not_approved",
+  "online_eligible": false,
+  "review_note": "Source-grounded demo candidate. Successful technical verification must not promote this rule to approved."
+}

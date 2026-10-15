@@ -1,0 +1,30 @@
+{
+  "schema_version": "demo-source-lean-mapping/1",
+  "rule_id": "VAT_ART14_C2_EXPORT_DOCS",
+  "namespace": "VAT.Article14Clause2",
+  "case_type": "ExportGoodsEvidence",
+  "target": "SatisfiesDocumentConditions",
+  "source_ref": "source.json",
+  "bindings": [
+    {"condition_id": "C01", "evidence_key": "inputVatInvoiceOrTaxReceipt", "lean_field": "inputVatInvoiceOrTaxReceipt", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_A", "source_fragment": "Có hóa đơn giá trị gia tăng mua hàng hóa, dịch vụ hoặc chứng từ nộp thuế", "note": "One aggregated slot for the alternatives; B01 applies."},
+    {"condition_id": "C02", "evidence_key": "nonCashPaymentForPurchase", "lean_field": "nonCashPaymentForPurchase", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_B", "source_fragment": "Có chứng từ thanh toán không dùng tiền mặt đối với hàng hóa, dịch vụ mua vào", "note": "Ordinary branch only; Government-defined exceptions remain outside scope."},
+    {"condition_id": "C03", "evidence_key": "foreignPartyContract", "lean_field": "foreignPartyContract", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "hợp đồng ký kết với bên nước ngoài về việc bán, gia công hàng hóa, cung cấp dịch vụ"},
+    {"condition_id": "C04", "evidence_key": "salesInvoice", "lean_field": "salesInvoice", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "hóa đơn bán hàng hóa, cung cấp dịch vụ"},
+    {"condition_id": "C05", "evidence_key": "nonCashPaymentForExport", "lean_field": "nonCashPaymentForExport", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "chứng từ thanh toán không dùng tiền mặt"},
+    {"condition_id": "C06", "evidence_key": "customsDeclaration", "lean_field": "customsDeclaration", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "tờ khai hải quan đối với hàng hóa xuất khẩu"},
+    {"condition_id": "C07", "evidence_key": "packingList", "lean_field": "packingList", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "phiếu đóng gói"},
+    {"condition_id": "C08", "evidence_key": "billOfLading", "lean_field": "billOfLading", "lean_predicate": "isPresent", "accepted_statuses": ["present"], "source_excerpt_id": "A14_C2_C", "source_fragment": "vận đơn"},
+    {"condition_id": "C09", "evidence_key": "insuranceCertificate", "lean_field": "insuranceCertificate", "lean_predicate": "insuranceCondition", "accepted_statuses": ["present", "notApplicable"], "source_excerpt_id": "A14_C2_C", "source_fragment": "chứng từ bảo hiểm hàng hóa (nếu có)", "note": "External justified notApplicable review is required; B03 applies."}
+  ],
+  "tests": [
+    {"id": "T01", "case_symbol": "completeCase", "theorem": "completeCase_is_verified", "expected_predicate": true, "scenario": "Eight mandatory slots present; insurance notApplicable."},
+    {"id": "T02", "case_symbol": "customsDeclarationUnknown", "theorem": "unknown_customs_is_not_verified", "expected_predicate": false, "scenario": "Customs unknown; business response must request evidence."},
+    {"id": "T03", "case_symbol": "customsDeclarationAbsent", "theorem": "absent_customs_is_not_verified", "expected_predicate": false, "scenario": "Confirmed customs-document absence in the model."},
+    {"id": "T04", "case_symbol": "insuranceUnknown", "theorem": "unknown_insurance_is_not_verified", "expected_predicate": false, "scenario": "Insurance unknown must not be silently exempted."},
+    {"id": "T05", "case_symbol": "customsDeclarationNotApplicable", "theorem": "not_applicable_customs_is_not_verified", "expected_predicate": false, "scenario": "Mandatory customs slot cannot use notApplicable in this demo."},
+    {"id": "T06", "case_symbol": "insurancePresent", "theorem": "present_insurance_is_verified", "expected_predicate": true, "scenario": "Exercise insurance present branch."}
+  ],
+  "status": "candidate",
+  "semantic_review": "pending",
+  "note": "These bindings describe a demo rule mapping, not a real-case premise binding or snapshot."
+}

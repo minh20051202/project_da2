@@ -1,0 +1,83 @@
+{
+  "schema_version": "demo-verification-record/1",
+  "started_at_utc": "2026-10-08T13:03:52.869174+00:00",
+  "status": "technical_checks_passed",
+  "semantic_review": "pending",
+  "approval": "not_approved",
+  "online_eligible": false,
+  "checks": {
+    "artifact_hashes": true,
+    "packet_identity_and_demo_status": true,
+    "source_excerpts_match_pdf_pages": true,
+    "ir_mapping_metadata_consistent": true,
+    "demo_source_placeholder_scan": true,
+    "lean_reelaboration": true,
+    "expected_theorem_types": true,
+    "axiom_dependency_allowlist": true,
+    "three_well_typed_mutations_detected": true
+  },
+  "checker_sha256": "97c31400fc7e375cd072ab37589a190247708678ca259f81ac5276b8cdd20a43",
+  "manifest_id": "MANIFEST_VAT_ART14_C2_EXPORT_DOCS_0_1_0_DEMO",
+  "manifest_sha256": "64bf686888daf2af4d46f3a1d9ff47027f7c42a44d349e4f1a17bae08b0ed84b",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "lean_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compile": {
+    "command": [
+      "elan",
+      "run",
+      "leanprover/lean4:v4.33.1",
+      "lean",
+      "formalization/Article14Clause2.lean"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "theorem_probe": {
+    "exit_code": 0,
+    "stdout": "'VAT.Article14Clause2.completeCase_is_verified' depends on axioms: [propext]\n'VAT.Article14Clause2.unknown_customs_is_not_verified' depends on axioms: [propext]\n'VAT.Article14Clause2.absent_customs_is_not_verified' depends on axioms: [propext]\n'VAT.Article14Clause2.unknown_insurance_is_not_verified' depends on axioms: [propext]\n'VAT.Article14Clause2.not_applicable_customs_is_not_verified' depends on axioms: [propext]\n'VAT.Article14Clause2.present_insurance_is_verified' depends on axioms: [propext]\n",
+    "stderr": ""
+  },
+  "axiom_dependencies": {
+    "VAT.Article14Clause2.completeCase_is_verified": [
+      "propext"
+    ],
+    "VAT.Article14Clause2.unknown_customs_is_not_verified": [
+      "propext"
+    ],
+    "VAT.Article14Clause2.absent_customs_is_not_verified": [
+      "propext"
+    ],
+    "VAT.Article14Clause2.unknown_insurance_is_not_verified": [
+      "propext"
+    ],
+    "VAT.Article14Clause2.not_applicable_customs_is_not_verified": [
+      "propext"
+    ],
+    "VAT.Article14Clause2.present_insurance_is_verified": [
+      "propext"
+    ]
+  },
+  "test_count": 6,
+  "mutation_smoke_tests": [
+    {
+      "id": "remove_customs_condition",
+      "predicate_typechecks": true,
+      "regression_exit_code": 1,
+      "detected": true
+    },
+    {
+      "id": "allow_unknown_insurance",
+      "predicate_typechecks": true,
+      "regression_exit_code": 1,
+      "detected": true
+    },
+    {
+      "id": "allow_unknown_mandatory",
+      "predicate_typechecks": true,
+      "regression_exit_code": 1,
+      "detected": true
+    }
+  ],
+  "elapsed_ms": 2337
+}

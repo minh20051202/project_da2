@@ -1,0 +1,43 @@
+{
+  "schema_version": "demo-source-reference/1",
+  "document_id": "114/VBHN-VPQH",
+  "source_path": "resources/references/01-vbhn-vpqh-114.pdf",
+  "source_sha256": "3ae9204946aa77c62877c3e5fcbf0186ac226d7e518b649c84c1c983bd08494d",
+  "article": "14",
+  "clause": "2",
+  "page_numbering": "PDF pages are 1-based; printed pages use the Cong Bao numbering.",
+  "text_normalization": "Whitespace-only joining of PDF line breaks; excerpts retain the source wording and punctuation.",
+  "excerpts": [
+    {
+      "id": "A14_C2_A",
+      "point": "a",
+      "pdf_page": 15,
+      "printed_page": 122,
+      "text": "a) Có hóa đơn giá trị gia tăng mua hàng hóa, dịch vụ hoặc chứng từ nộp thuế giá trị gia tăng ở khâu nhập khẩu hoặc chứng từ nộp thuế giá trị gia tăng thay cho phía nước ngoài quy định tại khoản 3 và khoản 4 Điều 4 của Luật này. Bộ trưởng Bộ Tài chính quy định chứng từ nộp thuế giá trị gia tăng thay cho phía nước ngoài;"
+    },
+    {
+      "id": "A14_C2_B",
+      "point": "b",
+      "pdf_page": 15,
+      "printed_page": 122,
+      "text": "b) Có chứng từ thanh toán không dùng tiền mặt đối với hàng hóa, dịch vụ mua vào, trừ một số trường hợp đặc thù theo quy định của Chính phủ;"
+    },
+    {
+      "id": "A14_C2_C",
+      "point": "c",
+      "pdf_page": 16,
+      "printed_page": 123,
+      "text": "c) Đối với hàng hóa, dịch vụ xuất khẩu, ngoài các điều kiện quy định tại điểm a và điểm b khoản này còn phải có: hợp đồng ký kết với bên nước ngoài về việc bán, gia công hàng hóa, cung cấp dịch vụ; hóa đơn bán hàng hóa, cung cấp dịch vụ; chứng từ thanh toán không dùng tiền mặt; tờ khai hải quan đối với hàng hóa xuất khẩu; phiếu đóng gói, vận đơn, chứng từ bảo hiểm hàng hóa (nếu có). Chính phủ quy định về điều kiện khấu trừ đối với trường hợp xuất khẩu hàng hóa qua sàn thương mại điện tử ở nước ngoài và một số trường hợp đặc thù khác."
+    }
+  ],
+  "context_references": [
+    {"article": "4", "clauses": ["3", "4"], "purpose": "Point a document alternatives; not formalized here."},
+    {"article": "14", "clause": "1", "purpose": "Substantive deduction requirements; outside this demo."},
+    {"article": "14", "clause": "3", "purpose": "Exclusions and prohibited document conduct; outside this demo."},
+    {"article": "14", "clause": "4", "purpose": "Delegated detailed rules; not resolved by this packet."}
+  ],
+  "effective_from": null,
+  "effective_to": null,
+  "temporal_review": "pending",
+  "temporal_note": "A repository source snapshot is identified by hash. Publication or consolidation date is not treated as the effective date of this rule. No claim of current applicability."
+}

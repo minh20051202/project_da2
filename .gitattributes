@@ -1,0 +1,9 @@
+# Preserve exact bytes: frozen manifests verify source and artifact hashes.
+* -text
+
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.zip binary
+*.png binary
+*.npy binary
